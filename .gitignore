@@ -1,0 +1,20 @@
+# Combined Gitignore
+
+# Backend
+movie-review-backend/venv/
+movie-review-backend/.venv/
+movie-review-backend/db.sqlite3
+movie-review-backend/.env
+movie-review-backend/__pycache__/
+movie-review-backend/*.py[cod]
+movie-review-backend/.vscode/
+
+# Frontend
+movie-review-frontend/node_modules/
+movie-review-frontend/dist/
+movie-review-frontend/.env
+movie-review-frontend/.vscode/
+
+# General
+.DS_Store
+*.log
