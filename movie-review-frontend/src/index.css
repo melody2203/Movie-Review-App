@@ -1,0 +1,66 @@
+:root {
+  --primary: #8b5a2b; /* Cognac */
+  --primary-light: #C19A6B; /* Desert Sand */
+  --bg-deep: #0f0a06; /* Deepest Espresso */
+  --bg-surface: #1e150d; /* Coffee Bean */
+  --text-main: #f5ebe0;
+  --text-dim: #a68a68;
+  --accent: #d4af37; /* Metallic Gold */
+  --glass: rgba(30, 21, 13, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar for Brown Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  transition: all 0.2s ease;
+}
+
+.full-screen-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
