@@ -11,9 +11,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-dev-key-here')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['merertuph.pythonanywhere.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["*"]
 
-# Application definition
+# Application definitions
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
