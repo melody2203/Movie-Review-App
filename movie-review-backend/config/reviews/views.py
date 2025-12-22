@@ -24,6 +24,9 @@ class UserCreate(generics.CreateAPIView):
     queryset = UserModel.objects.all()  # ✅ Fixed: Use UserModel, not CustomUser directly
     serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
+@api_view(["GET"])
+def movie_list(request):
+    return Response({"message": "API is working"})
 
 @api_view(['POST'])
 @authentication_classes([SessionAuthentication])  # Use SessionAuthentication

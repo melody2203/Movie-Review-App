@@ -11,7 +11,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-dev-key-here')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["merertuph.pythonanywhere.com",
+    ".vercel.app",]
 
 # Application definitions
 INSTALLED_APPS = [
@@ -82,11 +83,14 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # React default port
-    "http://127.0.0.1:3000",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://movie-review-frontend.vercel.app",
 ]
+INSTALLED_APPS += ["corsheaders"]
+
+MIDDLEWARE.insert(0, "corsheaders.middleware.CorsMiddleware")
+
 CORS_ALLOW_ALL_ORIGINS = True  # For development, restrict in production
 # Allow credentials if you're using authentication
 CORS_ALLOW_CREDENTIALS = True
