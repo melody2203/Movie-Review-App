@@ -10,7 +10,7 @@ urlpatterns = [
     path('', api_root),                       # Root welcome
     path('admin/', admin.site.urls),          # Admin panel
     path('api/auth-token/', obtain_auth_token, name='api_token_auth'),  # Token auth
-    path('api/users/', include('config.users.urls')),      # users app
-    path('api/movies/', include('config.movies.urls')),   # movies app
-    path('api/reviews/', include('config.reviews.urls')),  # reviews app
+    path('api/users/', include('users.urls')),      # users app
+    path('api/movies/', include('movies.urls')),   # movies app
+    path('api/reviews/', include('reviews.urls')),  # reviews app
 ]
