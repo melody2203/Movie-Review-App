@@ -19,6 +19,17 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "merertuph.pythonanywhere.com", ".vercel.app", ".onrender.com"]
 
+# CSRF Settings
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
+    "https://*.vercel.app",
+    "https://merertuph.pythonanywhere.com"
+]
+
+# Security Settings for Render Proxy
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = os.environ.get('DEBUG', 'True') == 'False'
+
 # Application definitions
 INSTALLED_APPS = [
     'django.contrib.admin',
