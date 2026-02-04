@@ -96,7 +96,7 @@ const Home = () => {
                         opacity: 0.9,
                         lineHeight: '1.6'
                     }}>
-                        FilmCritic is a premier destination for discovering curated cinematic masterpieces.
+                        Movie Review is a premier destination for discovering curated cinematic masterpieces.
                         We bring together community-driven reviews, deep industry insights, and
                         a passion for storytelling that transcends the screen. Join us in celebrating
                         the magic of the moving image.

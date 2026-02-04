@@ -5,7 +5,7 @@ const About = () => {
         <div style={{ padding: '8rem 10% 6rem', color: 'var(--text-main)', minHeight: '80vh' }}>
             <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                 <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '1.5rem', background: 'linear-gradient(to right, #fff, var(--accent))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                    About FilmCritic
+                    About Movie Review
                 </h1>
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-dim)', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
                     We are a community of cinephiles dedicated to the art of storytelling. Our mission is to provide a platform where every frame is analyzed and every dialogue is discussed.

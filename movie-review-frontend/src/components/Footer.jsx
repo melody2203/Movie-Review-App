@@ -78,7 +78,7 @@ const Footer = () => {
                         FILM<span style={{ color: 'var(--text-main)', opacity: 0.8 }}>CRITIC</span>
                     </div>
                     <p style={{ lineHeight: '1.7', fontSize: '0.9rem', opacity: 0.7, marginBottom: '2rem', maxWidth: '350px' }}>
-                        FilmCritic is a premiere destination for discovering curated cinematic masterpieces.
+                        Movie Review is a premiere destination for discovering curated cinematic masterpieces.
                         We bring together community-driven reviews and a passion for storytelling that
                         transcends the screen.
                     </p>
@@ -112,14 +112,14 @@ const Footer = () => {
                 <div style={{ textAlign: 'left' }}>
                     <h3 style={sectionTitleStyle}>Connect</h3>
                     <p style={{ fontSize: '0.85rem', opacity: 0.7, marginBottom: '0.75rem' }}>Have inquiries or feedback?</p>
-                    <a href="mailto:hello@filmcritic.com" style={{
+                    <a href="mailto:hello@moviereview.com" style={{
                         color: 'var(--text-main)',
                         textDecoration: 'none',
                         fontSize: '1rem',
                         fontWeight: '700',
                         borderBottom: '1.5px solid var(--primary)',
                         paddingBottom: '2px'
-                    }}>hello@filmcritic.com</a>
+                    }}>hello@moviereview.com</a>
                 </div>
             </div>
 
@@ -136,7 +136,7 @@ const Footer = () => {
                 gap: '1.5rem',
                 opacity: 0.8
             }}>
-                <p>&copy; {new Date().getFullYear()} FilmCritic Platform. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Movie Review Platform. All rights reserved.</p>
                 <div style={{ display: 'flex', gap: '2.5rem' }}>
                     <Link to="/terms" style={{ color: 'var(--text-dim)', textDecoration: 'none' }}>Terms of Service</Link>
                     <Link to="/privacy" style={{ color: 'var(--text-dim)', textDecoration: 'none' }}>Privacy Policy</Link>
