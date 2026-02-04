@@ -10,6 +10,8 @@ import About from './pages/About';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import GenrePage from './pages/GenrePage';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import './App.css';
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
             <Route path="privacy" element={<Privacy />} />
             <Route path="terms" element={<Terms />} />
             <Route path="genre/:genre" element={<GenrePage />} />
+            <Route path="forgot-password" element={<ForgotPassword />} />
+            <Route path="reset-password" element={<ResetPassword />} />
           </Route>
         </Routes>
       </AuthProvider>

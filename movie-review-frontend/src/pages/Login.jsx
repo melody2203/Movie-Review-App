@@ -132,6 +132,9 @@ const Login = () => {
                             onFocus={(e) => e.target.style.borderColor = 'var(--accent)'}
                             onBlur={(e) => e.target.style.borderColor = 'rgba(139, 90, 43, 0.3)'}
                         />
+                        <Link to="/forgot-password" style={{ display: 'block', marginTop: '0.5rem', fontSize: '0.85rem', color: 'var(--accent)', textDecoration: 'none', textAlign: 'right' }}>
+                            Forgot Password?
+                        </Link>
                     </div>
                     <button
                         type="submit"
