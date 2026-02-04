@@ -130,7 +130,7 @@ const Header = () => {
         <header style={headerStyle}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Link to="/" style={logoStyle}>
-                    MOVIE<span style={{ color: 'var(--text-main)', WebkitTextFillColor: 'var(--text-main)' }}>REVIEW</span>
+                    M<span style={{ color: 'var(--text-main)', WebkitTextFillColor: 'var(--text-main)' }}>R</span>
                 </Link>
 
                 <form onSubmit={handleSearch} style={searchContainerStyle}>

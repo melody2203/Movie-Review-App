@@ -75,7 +75,7 @@ const Footer = () => {
                         marginBottom: '1.2rem',
                         letterSpacing: '-1.5px'
                     }}>
-                        FILM<span style={{ color: 'var(--text-main)', opacity: 0.8 }}>CRITIC</span>
+                        M<span style={{ color: 'var(--text-main)', opacity: 0.8 }}>R</span>
                     </div>
                     <p style={{ lineHeight: '1.7', fontSize: '0.9rem', opacity: 0.7, marginBottom: '2rem', maxWidth: '350px' }}>
                         Movie Review is a premiere destination for discovering curated cinematic masterpieces.
