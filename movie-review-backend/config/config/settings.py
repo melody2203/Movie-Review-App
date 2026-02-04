@@ -17,7 +17,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-dev-key-here')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "merertuph.pythonanywhere.com", ".vercel.app", ".render.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "merertuph.pythonanywhere.com", ".vercel.app", ".onrender.com"]
 
 # Application definitions
 INSTALLED_APPS = [
