@@ -29,33 +29,33 @@ def movie_list(request):
     return Response({"message": "API is working"})
 
 @api_view(['POST'])
-@authentication_classes([SessionAuthentication])  # Use SessionAuthentication
-@permission_classes([AllowAny])  # Allow anyone to access login
+@authentication_classes([SessionAuthentication])
+@permission_classes([AllowAny])
 def login(request):
     username = request.data.get('username')
     password = request.data.get('password')
     
-    print(f"🔐 Login attempt - Username: {username}")  # Debug
+    print(f"🔐 Login attempt - Username: {username}")
     
-    # Manual authentication for CustomUser
     try:
-        from users.models import CustomUser
-        user = CustomUser.objects.get(username=username)
-        if user.check_password(password):
-            print(f"✅ Login successful for user: {user.id}")  # Debug
+        from django.contrib.auth import authenticate
+        from rest_framework.authtoken.models import Token
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            token, created = Token.objects.get_or_create(user=user)
+            print(f"✅ Login successful for user: {user.id}")
             return Response({
-                'message': 'Login successful', 
+                'token': token.key,
                 'user_id': user.id,
                 'username': user.username
             })
         else:
-            print("❌ Invalid password")  # Debug
-            return Response({'error': 'Invalid password'}, status=status.HTTP_401_UNAUTHORIZED)
-    except CustomUser.DoesNotExist:
-        print("❌ User not found")  # Debug
-        return Response({'error': 'User not found'}, status=status.HTTP_401_UNAUTHORIZED)
+            print("❌ Invalid credentials")
+            return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+            
     except Exception as e:
-        print(f"❌ Error: {e}")  # Debug
+        print(f"❌ Error: {e}")
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['POST'])
@@ -107,7 +107,7 @@ class ReviewList(generics.ListCreateAPIView):
     pagination_class = ReviewPagination
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)  # ✅ Auto-assign logged-in user
+        serializer.save(user=self.request.user, user_name=self.request.user.username)
 class MovieReviewList(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -124,25 +124,13 @@ class MovieReviewList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         movie_id = self.kwargs['movie_id']
         movie = Movie.objects.get(id=movie_id)
-        serializer.save(movie=movie, user=self.request.user)
+        serializer.save(movie=movie, user=self.request.user, user_name=self.request.user.username)
 
 class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-class MovieReviewList(generics.ListCreateAPIView):
-    serializer_class = ReviewSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]  # ✅ Added permissions
-
-    def get_queryset(self):
-        movie_id = self.kwargs['movie_id']
-        return Review.objects.filter(movie_id=movie_id)
-
-    def perform_create(self, serializer):
-        movie_id = self.kwargs['movie_id']
-        movie = Movie.objects.get(id=movie_id)
-        serializer.save(movie=movie, user=self.request.user)  # ✅ Auto-assign user
 class UserMovieListView(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer  # Use existing ReviewSerializer for now
     permission_classes = [permissions.IsAuthenticated]

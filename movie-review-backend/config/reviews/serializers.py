@@ -23,7 +23,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ['id', 'movie', 'user', 'rating', 'content', 'created_at', 'updated_at', 'likes_count', 'is_liked']
-        read_only_fields = ['id', 'created_at', 'updated_at', 'user', 'likes_count', 'is_liked']
+        read_only_fields = ['id', 'movie', 'created_at', 'updated_at', 'user', 'likes_count', 'is_liked']
 
     def get_is_liked(self, obj):
         request = self.context.get('request')

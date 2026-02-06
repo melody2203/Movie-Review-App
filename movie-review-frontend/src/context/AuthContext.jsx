@@ -10,8 +10,16 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
-        if (storedUser) {
+        const storedToken = localStorage.getItem('token');
+
+        if (storedUser && storedToken) {
             setUser(JSON.parse(storedUser));
+        } else {
+            // Clean up if mismatched
+            localStorage.removeItem('user');
+            localStorage.removeItem('token');
+            setUser(null);
+            setToken(null);
         }
         setLoading(false);
     }, []);

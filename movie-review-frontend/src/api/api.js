@@ -29,6 +29,16 @@ api.interceptors.response.use(
     },
     (error) => {
         console.error("API Error Response:", error.response);
+
+        // Handle 401 Unauthorized - Stale/Invalid Token
+        if (error.response && error.response.status === 401) {
+            console.warn("Unauthorized! Clearing session...");
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            // We could redirect to login here, but letting the app handle it via state change is cleaner
+            // window.location.href = '/login'; 
+        }
+
         return Promise.reject(error);
     }
 );
